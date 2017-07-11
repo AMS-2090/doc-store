@@ -7,4 +7,6 @@ import ams.docstore.domain.Document;
 public interface DocumentRepository {
 
 	List<Document> getAllDocuments();
+	
+	Document getDocumentById(String docId);
 }

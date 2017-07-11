@@ -36,4 +36,9 @@ public class InMemoryDocumentRepository implements DocumentRepository {
 	public List<Document> getAllDocuments() {
 		return listOfDocuments;
 	}
+
+	@Override
+	public Document getDocumentById(String docId) {
+		return listOfDocuments.stream().filter(doc -> doc.getId().equals(docId)).findFirst().get();
+	}
 }
