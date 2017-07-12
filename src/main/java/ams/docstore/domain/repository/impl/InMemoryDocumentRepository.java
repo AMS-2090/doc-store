@@ -41,4 +41,9 @@ public class InMemoryDocumentRepository implements DocumentRepository {
 	public Document getDocumentById(String docId) {
 		return listOfDocuments.stream().filter(doc -> doc.getId().equals(docId)).findFirst().get();
 	}
+
+	@Override
+	public void addDocument(Document document) {
+		listOfDocuments.add(document);
+	}
 }
