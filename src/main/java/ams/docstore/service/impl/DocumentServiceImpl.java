@@ -24,5 +24,10 @@ public class DocumentServiceImpl implements DocumentService {
 	public Document getDocumentById(String docId) {
 		return documentRepository.getDocumentById(docId);
 	}
+
+	@Override
+	public void addDocument(Document document) {
+		documentRepository.addDocument(document);
+	}
 	
 }
