@@ -3,16 +3,20 @@ package ams.docstore.domain;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Document {
 
 	private String docId;
 	private String name;
 	private String type;
 	private String source;
+	@JsonFormat(pattern = "dd.MM.yyyy")
 	private LocalDate date;
+	@JsonFormat(pattern = "kk:mm")
 	private LocalTime time;
 	private String description;
-	//MultipartFile document;
+	//MultipartFile documentFile;
 	
 	public Document() {
 	}
