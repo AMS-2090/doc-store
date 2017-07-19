@@ -29,7 +29,7 @@ public class InMemoryDocumentRepository implements DocumentRepository {
 		
 		listOfDocuments = new ArrayList<Document>();
 		
-		Document firstDoc = new Document("001", "first", "PDF");
+		Document firstDoc = new Document("001", "first", "image/png");
 		firstDoc.setSource("Scanner_1");
 		firstDoc.setDate(LocalDate.now());
 		firstDoc.setTime(LocalTime.now());
