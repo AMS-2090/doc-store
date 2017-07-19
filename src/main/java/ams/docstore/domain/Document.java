@@ -3,6 +3,10 @@ package ams.docstore.domain;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Document {
@@ -16,8 +20,12 @@ public class Document {
 	@JsonFormat(pattern = "kk:mm")
 	private LocalTime time;
 	private String description;
-	//MultipartFile documentFile;
+	@JsonIgnore
+	MultipartFile documentMultipartFile;
+	@JsonIgnore
+	private byte[] documentFile;
 	
+
 	public Document() {
 	}
 	
@@ -26,13 +34,13 @@ public class Document {
 		this.name = name;
 		this.type = type;
 	}
-	
-	public String getId() {
+
+	public String getDocId() {
 		return docId;
 	}
 
-	public void setId(String id) {
-		this.docId = id;
+	public void setDocId(String docId) {
+		this.docId = docId;
 	}
 
 	public String getName() {
@@ -82,6 +90,23 @@ public class Document {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public MultipartFile getDocumentMultipartFile() {
+		return documentMultipartFile;
+	}
+
+	public void setDocumentMultipartFile(MultipartFile documentMultipartFile) {
+		this.documentMultipartFile = documentMultipartFile;
+	}
+
+	public byte[] getDocumentFile() {
+		return documentFile;
+	}
+
+	public void setDocumentFile(byte[] documentFile) {
+		this.documentFile = documentFile;
+	}
+	
 
 	@Override
 	public int hashCode() {
