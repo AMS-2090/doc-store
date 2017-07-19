@@ -3,6 +3,9 @@ package ams.docstore.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,5 +35,17 @@ public class DocumentController {
 	@RequestMapping(method = RequestMethod.POST)
 	public void addDocument(@RequestBody Document document) {
 		documentService.addDocument(document);
+	}
+	
+	@RequestMapping("/{id}/file")
+	public ResponseEntity<ByteArrayResource> getDocumentFile(@PathVariable String id) {
+		Document doc = documentService.getDocumentById(id);
+		byte[] docFile = doc.getDocumentFile();
+		MediaType docMediaType = MediaType.parseMediaType(doc.getType());
+		
+		return ResponseEntity.ok()
+				.contentLength(docFile.length)
+				.contentType(docMediaType)
+				.body(new ByteArrayResource(docFile));
 	}
 }
