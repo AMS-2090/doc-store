@@ -18,7 +18,8 @@ import ams.docstore.service.DocumentService;
 @RestController
 @RequestMapping("/document")
 public class DocumentController {
-
+// TODO: Java documentation
+	
 	@Autowired
 	private DocumentService documentService;
 	
@@ -36,6 +37,9 @@ public class DocumentController {
 	public void addDocument(@RequestBody Document document) {
 		documentService.addDocument(document);
 	}
+	
+	// TODO : add addDocumentFile method
+
 	
 	@RequestMapping("/{id}/file")
 	public ResponseEntity<ByteArrayResource> getDocumentFile(@PathVariable String id) {

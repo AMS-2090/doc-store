@@ -30,4 +30,6 @@ public class DocumentServiceImpl implements DocumentService {
 		documentRepository.addDocument(document);
 	}
 	
+	// TODO : add addDocumentFile service method (conversion from MultipartFile to byte[])
+	
 }
