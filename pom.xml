@@ -8,7 +8,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<description>Spring Boot web service managing scanned documents storing</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -53,4 +52,5 @@
 
 
 	<name>doc-store</name>
+	<description>Spring Boot REST API for managing scanned documents</description>
 </project>
