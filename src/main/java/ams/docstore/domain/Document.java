@@ -13,6 +13,9 @@ public class Document {
 
 	private String docId;
 	private String name;
+	/**
+	 * Media Type notation, e.g. "image/png"
+	 */
 	private String type;
 	private String source;
 	@JsonFormat(pattern = "dd.MM.yyyy")
