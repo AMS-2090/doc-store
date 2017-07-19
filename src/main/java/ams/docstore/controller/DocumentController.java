@@ -13,6 +13,7 @@ import ams.docstore.domain.Document;
 import ams.docstore.service.DocumentService;
 
 @RestController
+@RequestMapping("/document")
 public class DocumentController {
 
 	@Autowired
@@ -23,12 +24,12 @@ public class DocumentController {
 		return documentService.getAllDocuments();
 	}
 	
-	@RequestMapping("/documents/{id}")
+	@RequestMapping("/{id}")
 	public Document getDocumentById(@PathVariable String id) {
 		return documentService.getDocumentById(id);
 	}
 	
-	@RequestMapping(value = "/documents", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public void addDocument(@RequestBody Document document) {
 		documentService.addDocument(document);
 	}
