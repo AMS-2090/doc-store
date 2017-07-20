@@ -76,4 +76,9 @@ public class InMemoryDocumentRepository implements DocumentRepository {
 	public void addDocumentFile(String docId, byte[] docFile) {
 		getDocumentById(docId).setDocumentFile(docFile);
 	}
+
+	@Override
+	public boolean checkDocumentById(String id) {
+		return listOfDocuments.stream().anyMatch(doc -> doc.getDocId().equals(id));
+	}
 }
