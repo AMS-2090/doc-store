@@ -3,8 +3,6 @@ package ams.docstore.domain;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -23,8 +21,6 @@ public class Document {
 	@JsonFormat(pattern = "kk:mm")
 	private LocalTime time;
 	private String description;
-	@JsonIgnore
-	MultipartFile documentMultipartFile;
 	@JsonIgnore
 	private byte[] documentFile;
 	
@@ -94,14 +90,6 @@ public class Document {
 		this.description = description;
 	}
 	
-	public MultipartFile getDocumentMultipartFile() {
-		return documentMultipartFile;
-	}
-
-	public void setDocumentMultipartFile(MultipartFile documentMultipartFile) {
-		this.documentMultipartFile = documentMultipartFile;
-	}
-
 	public byte[] getDocumentFile() {
 		return documentFile;
 	}
