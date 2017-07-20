@@ -1,9 +1,11 @@
 package ams.docstore.service.impl;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import ams.docstore.domain.Document;
 import ams.docstore.domain.repository.DocumentRepository;
@@ -29,7 +31,12 @@ public class DocumentServiceImpl implements DocumentService {
 	public void addDocument(Document document) {
 		documentRepository.addDocument(document);
 	}
-	
-	// TODO : add addDocumentFile service method (conversion from MultipartFile to byte[])
+
+	@Override
+	public void addDocumentFile(String docId, MultipartFile file) throws IOException {
+		
+		byte[] byteArrayFile = file.getBytes();
+		documentRepository.addDocumentFile(docId, byteArrayFile);
+	}
 	
 }
