@@ -12,7 +12,6 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 import org.springframework.stereotype.Repository;
-
 import ams.docstore.domain.Document;
 import ams.docstore.domain.repository.DocumentRepository;
 
@@ -71,5 +70,10 @@ public class InMemoryDocumentRepository implements DocumentRepository {
 	@Override
 	public void addDocument(Document document) {
 		listOfDocuments.add(document);
+	}
+
+	@Override
+	public void addDocumentFile(String docId, byte[] docFile) {
+		getDocumentById(docId).setDocumentFile(docFile);
 	}
 }
