@@ -36,7 +36,13 @@ public class DocumentServiceImpl implements DocumentService {
 	public void addDocumentFile(String docId, MultipartFile file) throws IOException {
 		
 		byte[] byteArrayFile = file.getBytes();
+		
 		documentRepository.addDocumentFile(docId, byteArrayFile);
+	}
+
+	@Override
+	public boolean checkDocumentById(String id) {
+		return documentRepository.checkDocumentById(id);
 	}
 	
 }

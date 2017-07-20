@@ -14,4 +14,6 @@ public interface DocumentService {
 	
 	void addDocument(Document document);
 	void addDocumentFile(String id, MultipartFile file) throws IOException;
+	
+	boolean checkDocumentById(String docId);
 }
