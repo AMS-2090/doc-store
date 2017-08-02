@@ -10,5 +10,7 @@ public interface DocumentRepository {
 	Document getDocumentById(String docId);
 	
 	void addDocument(Document document);
-
+	void addDocumentFile(String docId, byte[] file);
+	
+	boolean checkDocumentById(String docId);
 }

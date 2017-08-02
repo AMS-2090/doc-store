@@ -12,5 +12,7 @@ public class DocStoreApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
+	
+	// TODO: Tests...
 
 }
